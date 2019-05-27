@@ -159,4 +159,5 @@ public class TurnoLogic extends Chofer{
     public void setAudiEstado(boolean audiEstado) {
         this.audiEstado = audiEstado;
     }
+
 }

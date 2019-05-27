@@ -8,8 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +15,6 @@ import java.util.List;
 import Adaptador.RecyclerViewAdaptadorRuta;
 import Modelo.Resultado;
 import Modelo.Ruta;
-import Modelo.TurnoLogic;
 import Servicios.RestListener;
 import Servicios.RestRuta;
 
@@ -32,7 +29,7 @@ public class RutasActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fabTurno);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -44,7 +44,7 @@ public class RestTurno {
                                 objTurno.setTipo(jObjectTurno.getInt("tipo"));
                                 objTurno.setRutaId(jObjectTurno.getInt("rutaId"));
                                 objTurno.setOrden(jObjectTurno.getInt("orden"));
-                                objTurno.setOrden(jObjectTurno.getInt("estado"));
+                                objTurno.setEstado(jObjectTurno.getInt("estado"));
                                 objTurno.setLatitud(jObjectTurno.getDouble("latitud"));
                                 objTurno.setLongitud(jObjectTurno.getDouble("longitud"));
                                 objTurno.setCantidadPasajeros(jObjectTurno.getInt("cantidadPasajeros"));

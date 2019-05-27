@@ -16,11 +16,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.microsoft.signalr.HubConnection;
+import com.microsoft.signalr.HubConnectionBuilder;
+import com.microsoft.signalr.HubConnectionState;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import Adaptador.RecyclerViewAdaptador;
-import Modelo.Chofer;
 import Modelo.Resultado;
 import Modelo.TurnoLogic;
 import Servicios.RestListener;
@@ -32,6 +35,8 @@ public class PanelTurnos extends AppCompatActivity
     private RecyclerView recyclerViewTurno;
     private RecyclerViewAdaptador adaptadorTurno;
     private int RUTA_ID=1;
+    HubConnection hubConnection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +46,26 @@ public class PanelTurnos extends AppCompatActivity
         recyclerViewTurno.setLayoutManager(new LinearLayoutManager(this));
         ObtenerTurnos();
 
+        //Conexion
+        hubConnection= HubConnectionBuilder.create("http://localhost:5000/colaHub").build();
+        if(hubConnection.getConnectionState()== HubConnectionState.DISCONNECTED)
+            hubConnection.start();
+
+        //hubConnection.send("EjecutarEventoCola");
+        hubConnection.on("ActualizarLista",(lista)->{
+String variable= lista;
+}, String.class);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fabTurno);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                String guido="asdf";
+                hubConnection.send("EjecutarEventoCola",guido);
             }
         });
 

@@ -18,7 +18,7 @@ public class VerificacionActivity extends AppCompatActivity {
     private int progressStatus = 0;
     String CELULAR;
     int PROGRESS_TEMP=0;
-    int TOPE=30;
+    int TOPE=5;
     int MILISEGUNDOS=1000;
 
     private Handler handler = new Handler();
