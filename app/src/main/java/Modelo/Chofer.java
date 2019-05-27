@@ -3,6 +3,7 @@ package Modelo;
 public class Chofer {
     private int codigo;
     private String nombre;
+    private String apellidos;
     private String dni;
     private String correo;
     private String telefono;
@@ -50,6 +51,14 @@ public class Chofer {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getDni() {

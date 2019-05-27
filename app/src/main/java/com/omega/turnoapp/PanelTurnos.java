@@ -21,13 +21,17 @@ import java.util.List;
 
 import Adaptador.RecyclerViewAdaptador;
 import Modelo.Chofer;
+import Modelo.Resultado;
 import Modelo.TurnoLogic;
+import Servicios.RestListener;
+import Servicios.RestTurno;
 
 public class PanelTurnos extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView recyclerViewTurno;
     private RecyclerViewAdaptador adaptadorTurno;
+    private int RUTA_ID=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +39,8 @@ public class PanelTurnos extends AppCompatActivity
 
         recyclerViewTurno=(RecyclerView) findViewById(R.id.recyclerViewTurno);
         recyclerViewTurno.setLayoutManager(new LinearLayoutManager(this));
+        ObtenerTurnos();
 
-        adaptadorTurno= new RecyclerViewAdaptador(ObtenerTurnos());
-        recyclerViewTurno.setAdapter(adaptadorTurno);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,6 +52,7 @@ public class PanelTurnos extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -115,12 +119,23 @@ public class PanelTurnos extends AppCompatActivity
         return true;
     }
 
-    public List<TurnoLogic> ObtenerTurnos(){
-        List<TurnoLogic> turno= new ArrayList<>();
+    public void ObtenerTurnos(){
+        RestTurno.Listar(new RestListener<ArrayList<Resultado<TurnoLogic>>>() {
+            @Override
+            public void onResult(ArrayList<Resultado<TurnoLogic>> Object) {
+                List<TurnoLogic> listaTurnos= Object.get(0).getLista();
+                adaptadorTurno= new RecyclerViewAdaptador(listaTurnos);
+                recyclerViewTurno.setAdapter(adaptadorTurno);
+            }
+        },String.valueOf( RUTA_ID));
+
+
+        /*List<TurnoLogic> turno= new ArrayList<>();
         turno.add(new TurnoLogic("Lucas","Turno 1", "Pasajeros 2 de 6","cargando hace 2h", R.drawable.foto_perfil ));
         turno.add(new TurnoLogic("Jorge","Turno 2", "Unidad de 6 pasajeros","esperando hace 4h", R.drawable.foto_perfil ));
         turno.add(new TurnoLogic("Cristhian.NET","Turno 3", "Unidad de 4 pasajeros","esperando hace 5h", R.drawable.foto_perfil ));
         turno.add(new TurnoLogic("Pedro","Turno 4", "Unidad de 4 pasajeros","esperando hace 6h", R.drawable.foto_perfil ));
-        return turno;
+        return turno;*/
+
     }
 }

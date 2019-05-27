@@ -1,9 +1,14 @@
 package Modelo;
 
-public class Resultado {
+import java.util.List;
+
+public class Resultado<T> {
     private boolean estado;
+    private String titulo;
     private String mensaje;
     private String ayudaTexto;
+    private int ayudaEntero;
+    private List<T> lista;
 
     public boolean isEstado() {
         return estado;
@@ -11,6 +16,14 @@ public class Resultado {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getMensaje() {
@@ -27,5 +40,21 @@ public class Resultado {
 
     public void setAyudaTexto(String ayudaTexto) {
         this.ayudaTexto = ayudaTexto;
+    }
+
+    public int getAyudaEntero() {
+        return ayudaEntero;
+    }
+
+    public void setAyudaEntero(int ayudaEntero) {
+        this.ayudaEntero = ayudaEntero;
+    }
+
+    public List<T> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<T> lista) {
+        this.lista = lista;
     }
 }

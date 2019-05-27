@@ -7,7 +7,7 @@
     tools:context=".VerificacionActivity">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txtMensajeVerificacion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/sms_dark" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtConteoProgreso"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -58,7 +58,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMensajeVerificacion" />
 
     <ProgressBar
         android:id="@+id/pgbLoad"
@@ -68,10 +68,11 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="5dp"
+        android:max="30"
         android:progress="20"
         android:progressDrawable="@drawable/progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/txtConteoProgreso" />
 </android.support.constraint.ConstraintLayout>

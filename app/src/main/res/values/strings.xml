@@ -16,9 +16,9 @@
     <string name="cuadrodialogodatoschofer_mensaje"><b>%1$s</b>, necesita acceso a tu ubicación, para poder disfrutar de todas las funcionalidades que la app te ofrece.</string>
     <string name="cuadrodialogodatoschofer_btnaceptar">Activar GPS</string>
 
-    <string name="verificacion_mensaje1">Estamos enviando un mensaje al correo electrónico gtorre@gmail.com</string>
+    <string name="verificacion_mensaje1">Estamos enviando un mensaje al correo electrónico %1$s</string>
     <string name="verificacion_mensaje2"><b>TurnoApp</b> hará todo el proceso automáticamente.</string>
-    <string name="verificacion_mensaje3">Te enviaremos un correo en 1:55</string>
+    <string name="verificacion_mensaje3">Te enviaremos un correo en 0:%1$s</string>
     <string name="validar_verificacion_mensaje1">Ingresa el código de verificación de 6 dígitos enviado por correo.</string>
     <string name="datoschofer_mensaje1">Por favor, verifica tus datos sean los registrados.\nSi deseas puedes actualizarlos.</string>
     <string name="title_verificacion">Verificación</string>
@@ -36,4 +36,5 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="title_activity_rutas">Rutas</string>
 </resources>

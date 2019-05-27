@@ -17,10 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".RutasActivity"
+            android:label="@string/title_activity_rutas"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".PanelTurnos"
             android:label="@string/title_activity_panel_turnos"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".DatosChoferActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DatosChoferActivity" />
         <activity
             android:name=".ValidarVerificacionActivity"
             android:parentActivityName=".TelefonoActivity">

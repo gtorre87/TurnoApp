@@ -8,4 +8,5 @@
     <color name="colorTextBlack">#222831</color>
     <color name="colorTextGray">#808080</color>
     <color name="colorTextOrange">#FF9A00</color>
+    <color name="colorError">#E0320D</color>
 </resources>

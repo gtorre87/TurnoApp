@@ -19,7 +19,7 @@ public class RestManager {
         pgLoading= new ProgressDialog(context);
         pgLoading.setMessage("\tCargando...");
         pgLoading.setCancelable(false);
-        URL="https://servicerestturno.azurewebsites.net/api/chofer/987178895";
+        URL="https://servicerestturno.azurewebsites.net";
         requestQueue= Volley.newRequestQueue(context.getApplicationContext());
     }
 

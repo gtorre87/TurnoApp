@@ -9,7 +9,7 @@
 
     tools:layout_editor_absoluteX="15dp"
     tools:layout_editor_absoluteY="15dp"
-    tools:showIn="@layout/activity_cuadro_dialogo">
+    tools:showIn="@layout/activity_cuadro_dialogo_primary">
 
     <TextView
         android:id="@+id/txtTituloConfirmacion"
@@ -51,7 +51,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/border_round_button"
+        android:background="@drawable/button_primary_background"
         android:text="TextoBoton"
 
         android:textAlignment="center"

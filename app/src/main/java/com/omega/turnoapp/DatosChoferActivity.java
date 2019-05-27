@@ -33,6 +33,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import Modelo.Resultado;
+import Modelo.Ruta;
+import Servicios.RestListener;
+import Servicios.RestRuta;
 
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -47,12 +54,18 @@ public class DatosChoferActivity extends AppCompatActivity {
     ImageView imgFoto;
     String path;
     LocationManager locationManager;
+    String nroCelular;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_chofer);
         this.setTitle(R.string.title_datoschofer);
+
+        Bundle parametros = this.getIntent().getExtras();
+        if(parametros !=null) {
+            nroCelular = parametros.getString("celular");
+        }
 
         imgFoto= findViewById(R.id.imgFoto);
 
@@ -132,16 +145,35 @@ public class DatosChoferActivity extends AppCompatActivity {
             showDialog();
         }
         else {
-            Intent i = new Intent(DatosChoferActivity.this, PanelTurnos.class);
 
-            startActivity(i);
+            RestRuta.Listar(new RestListener<ArrayList<Resultado<Ruta>>>() {
+                @Override
+                public void onResult(ArrayList<Resultado<Ruta>> Object) {
+                    boolean respuesta=  Object.get(0).isEstado();
+                    String mensaje= Object.get(0).getMensaje();
+
+                    List<Ruta> listRutas = Object.get(0).getLista();
+
+                    if(respuesta){
+                        Intent i =  new Intent(DatosChoferActivity.this , PanelTurnos.class);
+                        startActivity(i);
+                    }else{
+
+                    }
+
+                }
+            });
+            //descomentar
+            /*Intent i = new Intent(DatosChoferActivity.this, PanelTurnos.class);
+
+            startActivity(i);*/
         }
     }
 
     public void showDialog(){
 
         LayoutInflater inflater= LayoutInflater.from(this);
-        View view= inflater.inflate(R.layout.activity_cuadro_dialogo,null);
+        View view= inflater.inflate(R.layout.activity_cuadro_dialogo_primary,null);
 
         final AlertDialog alertDialog= new AlertDialog.Builder(this)
                 .setView(view)

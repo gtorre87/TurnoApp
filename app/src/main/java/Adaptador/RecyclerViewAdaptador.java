@@ -11,7 +11,6 @@ import com.omega.turnoapp.R;
 
 import java.util.List;
 
-import Modelo.Chofer;
 import Modelo.TurnoLogic;
 
 public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdaptador.ViewHolder> {
